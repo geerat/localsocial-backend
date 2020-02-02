@@ -2,7 +2,7 @@ package com.localsocial.demo.dao.impl;
 
 import com.localsocial.demo.dao.UserRepo;
 import com.localsocial.demo.dto.LoginDto;
-import com.localsocial.demo.pojo.User;
+import com.localsocial.demo.models.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

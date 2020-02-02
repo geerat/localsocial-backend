@@ -3,7 +3,7 @@ package com.localsocial.demo.resource;
 import com.localsocial.demo.dao.UserDao;
 import com.localsocial.demo.dao.UserRepo;
 import com.localsocial.demo.dto.LoginDto;
-import com.localsocial.demo.pojo.User;
+import com.localsocial.demo.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

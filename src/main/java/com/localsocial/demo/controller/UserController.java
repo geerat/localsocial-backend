@@ -1,7 +1,7 @@
 package com.localsocial.demo.controller;
 import com.localsocial.demo.dto.Auth;
 import com.localsocial.demo.dto.LoginDto;
-import com.localsocial.demo.pojo.User;
+import com.localsocial.demo.models.User;
 import com.localsocial.demo.resource.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin
 @Controller
 @RequestMapping("api")
-public class UserContro ller {
+public class UserController {
 
     @Autowired
     private UserResource userResource;

@@ -1,14 +1,15 @@
 package com.localsocial.demo.resource;
 
 import com.localsocial.demo.dao.PostDao;
-import com.localsocial.demo.dao.UserDao;
+import com.localsocial.demo.dao.PostRepo;
 import com.localsocial.demo.dao.UserRepo;
-import com.localsocial.demo.pojo.Post;
+import com.localsocial.demo.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Component
@@ -19,6 +20,9 @@ public class PostResource {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private PostRepo postRepo;
 
     public String createPost(Post post) {
 
@@ -35,9 +39,9 @@ public class PostResource {
     }
 
 
-    public List<Post> getPosts() {
+    public List<Post> getPosts(Optional<Integer> start, Optional<Integer> end) {
 
-        return (List<Post>) postDao.findAll();
+        return postRepo.getPostsInOrder(start, end);
 
     }
 }

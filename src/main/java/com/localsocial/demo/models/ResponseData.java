@@ -1,4 +1,4 @@
-package com.localsocial.demo.pojo;
+package com.localsocial.demo.models;
 
 public class ResponseData {
 

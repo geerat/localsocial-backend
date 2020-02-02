@@ -1,4 +1,4 @@
-package com.localsocial.demo.pojo;
+package com.localsocial.demo.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
