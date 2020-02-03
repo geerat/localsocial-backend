@@ -1,9 +1,6 @@
 package com.localsocial.demo.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "posts")
@@ -21,6 +18,31 @@ public class Post {
 
     @Column(name="timestamp")
     private String timestamp;
+
+    @Column(name="likes")
+    private String likes;
+
+    @Column(name="like_count")
+    private int likeCount;
+
+    @Transient
+    private Boolean likeStatus;
+
+    public Boolean getLikeStatus() {
+        return likeStatus;
+    }
+
+    public void setLikeStatus(Boolean likeStatus) {
+        this.likeStatus = likeStatus;
+    }
+
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
 
     public String getPostId() {
         return postId;
@@ -52,5 +74,13 @@ public class Post {
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getLikes() {
+        return likes;
+    }
+
+    public void setLikes(String likes) {
+        this.likes = likes;
     }
 }
