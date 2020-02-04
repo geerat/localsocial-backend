@@ -33,6 +33,10 @@ public class UserController {
             return new ResponseEntity<>(new Auth(userData.getUsername(), "success"), HttpStatus.CREATED);
         } else if (status.equals("could not execute statement; SQL [n/a]; constraint [PRIMARY]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement")){
             return new ResponseEntity<>(new Auth(userData.getUsername(), "username-taken"), HttpStatus.BAD_REQUEST);
+        } else if (status.equals("invalid username")) {
+            return new ResponseEntity<>(new Auth(userData.getUsername(), "username-invalid"), HttpStatus.BAD_REQUEST);
+        } else if (status.equals("invalid password")) {
+            return new ResponseEntity<>(new Auth(userData.getUsername(), "password-invalid"), HttpStatus.BAD_REQUEST);
         } else {
             return new ResponseEntity<>(new Auth(userData.getUsername(), "failure"), HttpStatus.BAD_REQUEST);
         }

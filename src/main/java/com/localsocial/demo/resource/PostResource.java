@@ -110,7 +110,9 @@ public class PostResource {
                     }
                 }
 
-                newLikes = newLikes.substring(1);
+                if(!newLikes.equals("")) {
+                    newLikes = newLikes.substring(1);
+                }
 
                 postRepo.updateLikesForPost(postId, newLikes, false);
 

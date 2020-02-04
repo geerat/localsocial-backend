@@ -20,7 +20,17 @@ public class UserResource {
     private UserRepo userRepo;
 
     public String createUser(User userData) {
+
+        if(!validateUsername(userData.getUsername())) {
+            return "invalid username";
+        }
+
+        if(!validateUsername(userData.getPassword())) {
+            return "invalid password";
+        }
+
         String error = "success";
+
         String userId = UUID.randomUUID().toString();
         userData.setUserId(userId);
         try {
@@ -39,5 +49,15 @@ public class UserResource {
 
     public Boolean validateUser(LoginDto loginData) {
         return userRepo.validateCredentials(loginData);
+    }
+
+    public Boolean validateUsername(String username) {
+        Boolean valid = true;
+
+        if(username.length() < 5) {
+            valid = false;
+        }
+
+        return valid;
     }
 }
